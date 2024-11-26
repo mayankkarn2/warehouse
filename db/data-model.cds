@@ -9,11 +9,11 @@ entity Warehouse : managed {
 }
 
 entity Product : managed {
-  name : String(100);
-  category : String(50); // E.g., Electronics, Clothing
-  unitOfMeasure : String(10); // E.g., Pieces, Kilograms
-  perishable : Boolean;
-  expiryDate : DateTime; // Optional for perishable items
+  name : String(100) @title : 'Name';
+  category : String(50) @title : 'Category'; // E.g., Electronics, Clothing
+  unitOfMeasure : String(10) @title : 'UoM'; // E.g., Pieces, Kilograms
+  perishable : Boolean @title : 'Perishable';
+  expiryDate : DateTime @title : 'Expiry Date'; // Optional for perishable items
 }
 
 entity Inventory : managed {
