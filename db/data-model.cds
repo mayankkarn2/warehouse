@@ -3,7 +3,7 @@ using { Currency, managed, sap, cuid  } from '@sap/cds/common';
 namespace techmartIndia;
 
 entity Warehouse : managed, cuid {
-  name : String(100) @title : 'WH Name';
+  name : String(100) @title : 'Warehouse';
   location : String(200) @title : 'City'; 
   capacity : Integer @title : 'Capacity';
 }

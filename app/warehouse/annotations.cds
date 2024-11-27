@@ -1,31 +1,25 @@
 using adminService as service from '../../srv/admin';
+
+annotate service.Warehouse with @odata.draft.enabled;
+
 annotate service.Warehouse with @(
-    UI.FieldGroup #GeneratedGroup : {
-        $Type : 'UI.FieldGroupType',
-        Data : [
-            {
-                $Type : 'UI.DataField',
-                Value : name,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : location,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : capacity,
-            },
-        ],
+
+    Capabilities.SearchRestrictions : {
+        $Type : 'Capabilities.SearchRestrictionsType',
+        Searchable: false
     },
-    UI.Facets : [
-        {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
-            Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
-        },
+
+    UI.SelectionFields : [
+        name,
+        location,
+        capacity
     ],
-    UI.LineItem : [
+
+    UI.LineItem: [
+        {
+            $Type : 'UI.DataField',
+            Value : createdBy,
+        },
         {
             $Type : 'UI.DataField',
             Value : name,
@@ -37,7 +31,7 @@ annotate service.Warehouse with @(
         {
             $Type : 'UI.DataField',
             Value : capacity,
-        },
-    ],
+        },  
+    ] 
 );
 
