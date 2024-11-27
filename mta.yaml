@@ -71,9 +71,23 @@ modules:
       - comtechmartindiaproducts.zip
       name: comtechmartindiaproducts
       target-path: resources/
+    - artifacts:
+      - comtechmartindiawarehouse.zip
+      name: comtechmartindiawarehouse
+      target-path: resources/
 - name: comtechmartindiaproducts
   type: html5
   path: app/products
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comtechmartindiawarehouse
+  type: html5
+  path: app/warehouse
   build-parameters:
     build-result: dist
     builder: custom
